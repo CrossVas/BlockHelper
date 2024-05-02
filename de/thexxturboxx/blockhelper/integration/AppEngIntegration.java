@@ -15,6 +15,9 @@ public class AppEngIntegration extends BlockHelperInfoProvider {
             TilePoweredBase tpb = (TilePoweredBase) state.te;
             float stored = tpb.storedPower;
             float max = tpb.maxStoredPower;
+            if (stored > max) {
+                stored = max;
+            }
             if (max != 0) {
                 info.add(stored + " AE / " + max + " AE");
             }
@@ -22,6 +25,9 @@ public class AppEngIntegration extends BlockHelperInfoProvider {
             IMEPowerStorage ps = (IMEPowerStorage) state.te;
             double stored = ps.getMECurrentPower();
             double max = ps.getMEMaxPower();
+            if (stored > max) {
+                stored = max;
+            }
             if (max != 0) {
                 info.add(stored + " AE / " + max + " AE");
             }
